@@ -45,11 +45,18 @@ gulp.task('default', ['sync']);
 // Clean up
 gulp.task('clean', del.bind(null, [DEST]));
 
+// 3rd party fonts
+// gulp.task('vendor', function() {
+//   return gulp.src('./node_modules/bootstrap/dist/fonts/**')
+//     .pipe(gulp.dest(DEST + '/fonts'));
+// });
+
 // 3rd party libraries
 gulp.task('vendor', function() {
-  return gulp.src('./node_modules/bootstrap/dist/fonts/**')
-    .pipe(gulp.dest(DEST + '/fonts'));
+  return gulp.src('./src/lib/**/*.*')
+    .pipe(gulp.dest(DEST + '/scripts'));
 });
+
 
 // Static files
 gulp.task('assets', function() {
