@@ -16,6 +16,7 @@ import AppActions from '../../actions/AppActions';
 import NavigationMixin from './NavigationMixin';
 import AppStore from '../../stores/AppStore';
 import NotFoundPage from '../NotFoundPage';
+import Hero from '../Hero';
 
 var Application = React.createClass({
 
@@ -41,7 +42,8 @@ var Application = React.createClass({
     return (
       /* jshint ignore:start */
       <div className="App">
-        <h2>Hi!</h2>
+        <Hero />
+
       </div>
       /* jshint ignore:end */
     );
