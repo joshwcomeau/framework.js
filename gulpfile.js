@@ -53,7 +53,13 @@ gulp.task('clean', del.bind(null, [DEST]));
 
 // 3rd party libraries
 gulp.task('vendor', function() {
-  return gulp.src('./src/lib/**/*.*')
+  return gulp.src('./src/vendor/**/*.*')
+    .pipe(gulp.dest(DEST + '/vendor'));
+});
+
+// Miscellaneous, non-react scripts
+gulp.task('scripts', function() {
+  return gulp.src('./src/scripts/**/*.js')
     .pipe(gulp.dest(DEST + '/scripts'));
 });
 
@@ -118,7 +124,7 @@ gulp.task('bundle', function(cb) {
 
 // Build the app from source code
 gulp.task('build', ['clean'], function(cb) {
-  runSequence(['vendor', 'assets', 'styles', 'bundle'], cb);
+  runSequence(['vendor', 'assets', 'styles', 'scripts', 'bundle'], cb);
 });
 
 // Build and start watching for modifications

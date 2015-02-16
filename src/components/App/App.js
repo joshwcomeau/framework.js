@@ -18,6 +18,24 @@ import AppStore from '../../stores/AppStore';
 import NotFoundPage from '../NotFoundPage';
 import Hero from '../Hero';
 
+var frameworkData = [
+  {
+    name: 'Artichoke',
+    adjective: 'superheroic',
+    description: 'revolutionizes multi-dimensional data distribution through coaxial binding techniques, so you can do more with less.'
+  },
+  {
+    name: 'Jesus',
+    adjective: 'hyper-vigilant',
+    description: 'supercharges your development IDE by adding symbols everywhere, whether you want them or not.'
+  },
+  {
+    name: 'Walrus',
+    adjective: 'fantastical',
+    description: 'clears the bottleneck of DOM manipulation by manipulating your users\'s eyeballs instead.'
+  },
+];
+
 var Application = React.createClass({
 
   mixins: [NavigationMixin],
@@ -29,7 +47,28 @@ var Application = React.createClass({
     onPageNotFound: React.PropTypes.func.isRequired
   },
 
-  render() {
+  // Initialize with null data. On creation, we'll fetch data from the server.
+  getInitialState: function() {
+    return {data: {
+      name: null,
+      adjective: null,
+      description: null
+    }};
+  },
+
+  // Called when the component gets mounted, and when the user hits shuffle.
+  fetchFrameworkData: function() {
+    // Replace me with an API call to the server.
+    this.setState({
+      data: _.sample(frameworkData)
+    });
+  },
+
+  componentDidMount: function() {
+    this.fetchFrameworkData();
+  },
+
+  render: function() {
     var page = AppStore.getPage(this.props.path);
     invariant(page !== undefined, 'Failed to load page content.');
     this.props.onSetTitle(page.title);
@@ -42,7 +81,7 @@ var Application = React.createClass({
     return (
       /* jshint ignore:start */
       <div className="App">
-        <Hero />
+        <Hero data={this.state.data} />
 
       </div>
       /* jshint ignore:end */
