@@ -32,7 +32,7 @@ var frameworkData = [
   {
     name: 'Walrus',
     adjective: 'fantastical',
-    description: 'clears the bottleneck of DOM manipulation by manipulating your users\'s eyeballs instead.'
+    description: 'bypasses the DOM bottleneck by manipulating your users\'s eyeballs with 3D autostereoscopy instead.'
   },
 ];
 

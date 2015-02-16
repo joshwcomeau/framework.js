@@ -2,16 +2,33 @@
 
 .App {
   font-family: 'Lato';
+  
+  .blue {
+    color: @blue;
+  }
+  .beige {
+    color: @beige;
+  }
+  .lightpink {
+    color: @lightpink;
+  }
+  .pink {
+    color: @pink;
+  }
+  .red {
+    color: @red;
+  }
 
   h1, h2, h3, h4, h5, h6 {
     font-weight: @wt-bold;
-    color: @beige;
+    color: @offwhite;
   }
 
   h1 {
-    font-size: 8rem;
+    font-size: 12rem;
     font-weight: @wt-heavy;
     color: @red;
+    letter-spacing: -3px;
   }
 
   h2 {
@@ -20,7 +37,7 @@
 
   h3 {
     font-size: 2.75rem;
-    text-transform: uppercase;
+    color: @beige;
   }
 
   h4 {
@@ -29,6 +46,7 @@
 
   h5 {
     font-size: 2rem;
+    font-weight: @wt-normal;
   }
 
   h6 {
