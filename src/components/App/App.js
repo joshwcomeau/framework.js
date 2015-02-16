@@ -17,6 +17,7 @@ import NavigationMixin from './NavigationMixin';
 import AppStore from '../../stores/AppStore';
 import NotFoundPage from '../NotFoundPage';
 import Hero from '../Hero';
+import Shuffle from '../Shuffle';
 
 var frameworkData = [
   {
@@ -82,7 +83,7 @@ var Application = React.createClass({
       /* jshint ignore:start */
       <div className="App">
         <Hero data={this.state.data} />
-
+        <Shuffle shuffle={this.fetchFrameworkData} />
       </div>
       /* jshint ignore:end */
     );
