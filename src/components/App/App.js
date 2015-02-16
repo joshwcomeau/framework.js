@@ -19,22 +19,15 @@ import NotFoundPage from '../NotFoundPage';
 import Hero from '../Hero';
 import Shuffle from '../Shuffle';
 
-var frameworkData = [
-  {
-    name: 'Artichoke',
-    adjective: 'superheroic',
-    description: 'revolutionizes multi-dimensional data distribution through coaxial binding techniques, so you can do more with less.'
-  },
-  {
-    name: 'Jesus',
-    adjective: 'hyper-vigilant',
-    description: 'supercharges your development IDE by adding symbols everywhere, whether you want them or not.'
-  },
-  {
-    name: 'Walrus',
-    adjective: 'fantastical',
-    description: 'bypasses the DOM bottleneck by manipulating your users\'s eyeballs with 3D autostereoscopy instead.'
-  },
+var frameworkNames = ['Artichoke', 'Jeez', 'Walrus', 'Monopoly', 'Pizza', 'Fingers', 'Stringcheese', 'RedBull'];
+var frameworkAdjectives = ['superheroic', 'hyper-vigilant', 'fantastical', 'bewildering', 'lackadaisical', 'delightful', 'robust', 'colossal'];
+var frameworkDescriptions = [
+  "revolutionizes multi-dimensional data distribution through coaxial binding techniques, so you can do more with less.",
+  "supercharges your development IDE by adding symbols everywhere, whether you want them or not.",
+  "bypasses the DOM bottleneck by manipulating your users's eyeballs with 3D autostereoscopy instead.",
+  "obediently organizes your assets into logical partitions for hassle-free asset pipelining.",
+  "adds <marquee> tags haphazardly for maximum attention-grabbing potential. ROI+++++.",
+  "provides cheery fortune cookie alert() popups to keep your visitors positive and engaged.",
 ];
 
 var Application = React.createClass({
@@ -61,7 +54,11 @@ var Application = React.createClass({
   fetchFrameworkData: function() {
     // Replace me with an API call to the server.
     this.setState({
-      data: _.sample(frameworkData)
+      data: {
+        name:         _.sample(frameworkNames),
+        adjective:    _.sample(frameworkAdjectives),
+        description:  _.sample(frameworkDescriptions)
+      }
     });
   },
 
